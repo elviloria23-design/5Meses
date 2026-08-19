@@ -1,4 +1,4 @@
-z* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -98,17 +98,17 @@ CARTA
 .carta h2 {
     color: #d6336c;
 
-    font-size: clamp(17px, 5vw, 23px);
+    font-size: clamp(24px, 7vw, 32px);
 
-    margin-bottom: 12px;
+    margin-bottom: 25px;
 }
 
 .carta p {
-    font-size: clamp(10px, 2.8vw, 13px);
+    font-size: clamp(15px, 4.5vw, 18px);
 
-    line-height: 1.35;
+    line-height: 1.6;
 
-    margin-bottom: 8px;
+    margin-bottom: 18px;
 }
 
 
