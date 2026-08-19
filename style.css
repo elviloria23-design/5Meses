@@ -98,7 +98,7 @@ CARTA
 .carta h2 {
     color: #d6336c;
 
-    font-size: clamp(20px, 7vw, 32px);
+    font-size: clamp(20px, 6vw, 28px);
 
     margin-bottom: 25px;
 }
