@@ -98,17 +98,17 @@ CARTA
 .carta h2 {
     color: #d6336c;
 
-    font-size: clamp(20px, 6vw, 28px);
+    font-size: clamp(17px, 5vw, 23px);
 
-    margin-bottom: 25px;
+    margin-bottom: 12px;
 }
 
 .carta p {
-    font-size: clamp(13px, 3.5vw, 16px);
+    font-size: clamp(10px, 2.8vw, 13px);
 
-    line-height: 1.6;
+    line-height: 1.35;
 
-    margin-bottom: 18px;
+    margin-bottom: 8px;
 }
 
 
