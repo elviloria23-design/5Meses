@@ -1,4 +1,4 @@
-* {
+z* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -123,17 +123,17 @@ TAPA
     left: 0;
 
     width: 100%;
-    height: 100%;
+    height: 70%;
 
     background: #f7a2c2;
 
     clip-path: polygon(
         0 0,
-        50% 85%,
+        50% 100%,
         100% 0
     );
 
-    z-index: 3;
+    z-index: 4;
 
     transform-origin: top center;
 
