@@ -1,0 +1,429 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+
+    padding: 20px;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 500px;
+
+    text-align: center;
+}
+
+h1 {
+    color: #d6336c;
+
+    font-size: clamp(24px, 7vw, 34px);
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+SOBRE
+========================= */
+
+.sobre {
+    position: relative;
+
+    width: 92%;
+    max-width: 420px;
+
+    height: 420px;
+
+    margin: 0 auto 35px;
+
+    background: #e979a3;
+
+    border-radius: 10px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    overflow: visible;
+}
+
+
+/* =========================
+CARTA
+========================= */
+
+.carta {
+    position: absolute;
+
+    width: 90%;
+    height: 95%;
+
+    left: 5%;
+    top: 2.5%;
+
+    background: #fffdfd;
+
+    border-radius: 10px;
+
+    z-index: 1;
+
+    padding: 30px 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: #5a3a45;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 1s ease,
+        box-shadow 0.5s ease;
+}
+
+.carta h2 {
+    color: #d6336c;
+
+    font-size: clamp(24px, 7vw, 32px);
+
+    margin-bottom: 25px;
+}
+
+.carta p {
+    font-size: clamp(15px, 4.5vw, 18px);
+
+    line-height: 1.6;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+TAPA
+========================= */
+
+.tapa {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #f7a2c2;
+
+    clip-path: polygon(
+        0 0,
+        50% 50%,
+        100% 0
+    );
+
+    z-index: 3;
+
+    transform-origin: top center;
+
+    transition: transform 0.8s ease;
+}
+
+
+/* =========================
+PARTE FRONTAL DEL SOBRE
+========================= */
+
+.sobre::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 65%;
+
+    background: #e979a3;
+
+    clip-path: polygon(
+        0 0,
+        50% 50%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+    z-index: 2;
+}
+
+
+/* =========================
+SOBRE ABIERTO
+========================= */
+
+.sobre.abierto .tapa {
+    transform: rotateX(180deg);
+}
+
+.sobre.abierto .carta1 {
+    transform: translateY(-30%);
+    z-index: 4;
+}
+
+
+/* =========================
+BOTÓN
+========================= */
+
+#btnAbrir {
+    border: none;
+
+    background: #d6336c;
+
+    color: white;
+
+    width: 55%;
+    max-width: 220px;
+
+    padding: 15px 10px;
+
+    border-radius: 30px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(214, 51, 108, 0.3);
+
+    transition: transform 0.2s ease;
+}
+
+#btnAbrir:active {
+    transform: scale(0.94);
+}
+
+#btnAbrir:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================
+OCULTAR BOTÓN AL ABRIR
+========================= */
+
+#btnAbrir {
+    transition: transform 0.2s ease;
+}
+
+/* =========================
+ORDEN DE LAS CARTAS
+========================= */
+
+/* CARTA 1 - SIEMPRE INICIAL */
+.carta1 {
+    z-index: 1;
+    transform: translateX(0);
+}
+
+
+/* CARTAS 2, 3 Y 4
+   COMIENZAN FUERA DE PANTALLA */
+
+.carta2,
+.carta3,
+.carta4 {
+    z-index: 0;
+    transform: translateX(120%);
+}
+
+
+/* =========================
+MOSTRAR CARTA 2
+========================= */
+
+.sobre.mostrar-carta2 .carta2 {
+    transform: translateX(0);
+    z-index: 5;
+}
+
+/* =========================
+MOSTRAR CARTA 3
+========================= */
+
+.sobre.mostrar-carta3 .carta3 {
+    transform: translateX(0);
+    z-index: 6;
+}
+
+
+/* =========================
+MOSTRAR CARTA 4
+========================= */
+
+.sobre.mostrar-carta4 .carta4 {
+    transform: translateX(0);
+    z-index: 7;
+}
+
+/* =========================
+   SORPRESA FINAL
+========================= */
+
+#sorpresaFinal {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #ffd6e7,
+        #fff0f5
+    );
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: opacity 1s ease;
+
+    z-index: 100;
+}
+
+
+/* Mostrar sorpresa */
+
+#sorpresaFinal.mostrar {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================
+   TEXTO FINAL
+========================= */
+
+#sorpresaFinal h2 {
+    color: #d6336c;
+
+    font-size: clamp(28px, 8vw, 42px);
+
+    margin-bottom: 20px;
+
+    animation: aparecerTexto 1.5s ease;
+}
+
+#sorpresaFinal p {
+    color: #5a3a45;
+
+    font-size: clamp(18px, 5vw, 24px);
+
+    animation: aparecerTexto 2s ease;
+}
+
+
+/* =========================
+   CORAZONES
+========================= */
+
+.corazones {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.corazones::before {
+    content: "❤️  💗  💕  💖  💘  ❤️  💗  💕  💖";
+
+    position: absolute;
+
+    width: 100%;
+
+    left: 0;
+
+    bottom: -50px;
+
+    font-size: clamp(20px, 6vw, 35px);
+
+    word-spacing: 30px;
+
+    animation: corazonesSubiendo 5s linear infinite;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes corazonesSubiendo {
+
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes aparecerTexto {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
